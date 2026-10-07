@@ -1,0 +1,172 @@
+{
+  "app_name": "Gestão Financeira Inteligente (FinAI)",
+  "personality": "Fusion: 1 iOS-Native Clean (structure) + 6 Glass / Luxe DARK (color/aesthetics)",
+  "personality_one_liner": "A premium, cinematic command center where your money feels secure, insights glow with emerald clarity, and every interaction feels effortless.",
+  "color": {
+    "surface": "#0A0A0A",
+    "onSurface": "#F9FAFB",
+    "surfaceSecondary": "#171717",
+    "onSurfaceSecondary": "#E5E7EB",
+    "surfaceTertiary": "#262626",
+    "onSurfaceTertiary": "#D1D5DB",
+    "surfaceInverse": "#F3F4F6",
+    "onSurfaceInverse": "#111827",
+    "brand": "#10B981",
+    "onBrand": "#022C22",
+    "brandPrimary": "#10B981",
+    "onBrandPrimary": "#022C22",
+    "brandSecondary": "#34D399",
+    "onBrandSecondary": "#064E3B",
+    "brandTertiary": "#065F46",
+    "onBrandTertiary": "#A7F3D0",
+    "success": "#22C55E",
+    "onSuccess": "#052E16",
+    "warning": "#F59E0B",
+    "onWarning": "#451A03",
+    "error": "#EF4444",
+    "onError": "#450A0A",
+    "info": "#0D9488",
+    "onInfo": "#042F2E",
+    "border": "#262626",
+    "borderStrong": "#404040",
+    "divider": "#1F1F1F",
+    "muted": "#9CA3AF"
+  },
+  "typography": {
+    "displayFontFamily": "Space Grotesk",
+    "textFontFamily": "Plus Jakarta Sans",
+    "scale": {
+      "sm": 12,
+      "base": 14,
+      "lg": 16,
+      "xl": 20,
+      "2xl": 24
+    }
+  },
+  "spacing": {
+    "rule": "Generous vertical breathing room and comfortable iOS-native paddings. No dense edge-to-edge layouts.",
+    "xs": 4,
+    "sm": 8,
+    "md": 12,
+    "lg": 16,
+    "xl": 24,
+    "2xl": 32,
+    "3xl": 48
+  },
+  "radius_tokens": {
+    "sm": 6,
+    "md": 12,
+    "lg": 20,
+    "pill": 999
+  },
+  "shadow_tier": "0",
+  "navigation": "bottom_tabs",
+  "icon_set": "Phosphor",
+  "glassmorphism": {
+    "enabled": true,
+    "do_s": [
+      "Use for sticky headers over scrolling content",
+      "Use for the bottom tab bar",
+      "Use for the main Total Balance / Hero card",
+      "Ensure underlying tinted base is \u226575% opacity in dark mode to guarantee foreground readability"
+    ],
+    "dont_s": [
+      "Never blur body text regions or form fields",
+      "Do not stack more than 2 glass surfaces on a single screen"
+    ]
+  },
+  "platform_libraries": {
+    "glass": {
+      "ios": "expo-glass-effect",
+      "android": "expo-blur",
+      "low_end_android_fallback": "solid surfaceSecondary"
+    },
+    "image": "expo-image",
+    "blur": "expo-blur",
+    "bottom_sheet": "@gorhom/bottom-sheet",
+    "animation": "react-native-reanimated",
+    "gesture": "react-native-gesture-handler"
+  },
+  "screens": [
+    {
+      "name": "Login",
+      "purpose": "Secure entry point with email/password JWT and Google authentication.",
+      "states": {
+        "loading": "Spinner over glass card",
+        "empty": "N/A",
+        "error": "Standard form error messages + Toast"
+      },
+      "layout": "Full-bleed background using the abstract emerald texture. A heavy gradient scrim (top to bottom, transparent to surface) must cover the image. A frosted glass card holds the login inputs. Primary CTA at the bottom of the card, Google login below it."
+    },
+    {
+      "name": "In\u00edcio (Dashboard)",
+      "purpose": "Provide immediate overview of total wealth and connected open finance bank accounts.",
+      "states": {
+        "loading": "Skeleton loaders for balance and bank cards",
+        "empty": "Illustration for 'No banks connected' + Connect CTA",
+        "error": "Error loading balances + Retry button"
+      },
+      "layout": "Large display typography for 'Saldo Total' anchored in a glass hero card at the top. Below, a horizontal scroll (or stacked cards) of connected banks (Nubank, Ita\u00fa, etc.). Use initials fallback (NU, IT, BR, IN) in tinted circles since real PNGs were unavailable, or try to fetch them again later. FAB at the bottom right for quick actions."
+    },
+    {
+      "name": "Transa\u00e7\u00f5es",
+      "purpose": "Detailed list of all transactions with filtering capabilities.",
+      "states": {
+        "loading": "List skeleton",
+        "empty": "Icon + 'Nenhuma transa\u00e7\u00e3o encontrada' + Primary CTA",
+        "error": "Error message + Retry CTA"
+      },
+      "layout": "Sticky header with frosted glass containing horizontal scrollable filter chips (Categories, Months). Standard list items below, min 56pt height. Leading visual for each row is an icon inside a brandTertiary-tinted rounded square."
+    },
+    {
+      "name": "Planos (Or\u00e7amentos e Metas)",
+      "purpose": "Track spending against budgets and savings goals.",
+      "states": {
+        "loading": "Card skeletons with progress bars",
+        "empty": "Illustration + 'Crie sua primeira meta' + Primary CTA",
+        "error": "Error loading plans + Retry"
+      },
+      "layout": "Two sections: Or\u00e7amentos (Budgets) and Metas (Goals). Use cards with integrated progress bars (linear for budgets, circular for goals). Ensure cards have md padding and are not flush to screen edges."
+    },
+    {
+      "name": "Insights",
+      "purpose": "AI-generated financial analysis and personalized recommendations.",
+      "states": {
+        "loading": "Shimmering 'AI is thinking...' skeleton",
+        "empty": "Welcome to AI insights state",
+        "error": "Failed to connect to AI model + Retry"
+      },
+      "layout": "Chat or feed-like interface. A sticky glass header with an 'AI Sparkle' or 'Lumina' avatar. Insight cards should feel elevated and distinctly different from transaction rows (perhaps using a subtle brand-tinted gradient background)."
+    }
+  ],
+  "images": {
+    "google_logo": {
+      "url": "https://images.unsplash.com/photo-1678483790053-71367bc7a02c?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2Mzl8MHwxfHNlYXJjaHwxfHxHb29nbGUlMjBsb2dvJTIwdHJhbnNwYXJlbnQlMjBwbmd8ZW58MHx8fHwxNzkxMzQyMjI5fDA&ixlib=rb-4.1.0&q=85",
+      "alt": "Google Logo transparent"
+    },
+    "hero_background": {
+      "url": "https://images.unsplash.com/photo-1593900154763-1db4833d1784?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1NjZ8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMGRhcmslMjBlbWVyYWxkJTIwZ3JlZW4lMjBnbGFzcyUyMDNkJTIwdGV4dHVyZXxlbnwwfHx8fDE3OTEzNDIyMjl8MA&ixlib=rb-4.1.0&q=85",
+      "alt": "Abstract dark emerald green glass 3d texture"
+    },
+    "bank_logos_fallback": {
+      "url": "fallback_initials",
+      "alt": "Use 2-3 letter initials (e.g., 'NU', 'ITA', 'BRA', 'INT') in a brandTertiary tinted circle as image_selector_tool returned 0 results for specific Brazilian banks."
+    }
+  },
+  "haptics": {
+    "button_press": "light",
+    "tab_change": "light",
+    "transaction_add": "medium",
+    "goal_progress": "success"
+  },
+  "instructions_to_main_agent": [
+    "Adopt the Fusion personality: iOS-Native Clean for generous spacing and structure, combined with Glass / Luxe DARK for colors and visual depth.",
+    "Implement the provided Emerald/Obsidian dark palette EXACTLY as defined. Do not use blue or purple anywhere in the UI.",
+    "For the Open Finance bank logos (Nubank, Ita\u00fa, Bradesco, Inter), the image search returned 0 results. Use the mandated fallback: initials avatar in a tinted circle (e.g., 'NU', 'ITA').",
+    "Enforce the gradient scrim pattern (transparent to >= 70% surface opacity) on the Login screen over the abstract background image.",
+    "Apply glassmorphism to sticky headers, tab bars, and the main balance card on the dashboard, ensuring a tinted base of >= 75% surface opacity for readability.",
+    "Transactions list must use an icon inside a brandTertiary-tinted rounded square as the leading visual for each row.",
+    "AI Insights screen should use subtle brand-tinted gradient backgrounds on the cards to differentiate them from standard data cards.",
+    "Ensure all primary buttons have a minimum height of 44pt (ideally 56pt) and use the 'Space Grotesk' display font for large numeric metrics like the Total Balance."
+  ]
+}
